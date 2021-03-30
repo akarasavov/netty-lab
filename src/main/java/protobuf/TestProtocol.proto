@@ -1,0 +1,40 @@
+
+// $ protoc src/main/java/protobuf/TestProtocol.proto \
+//          --java_out=.
+syntax = "proto3";
+
+package messages;
+
+message MessageRequest {
+  enum Type{HELLO = 0; TIME = 1;}
+
+  Type type = 1;
+
+  optional SayHelloRequest hello = 2;
+  optional TimeRequest time = 3;
+}
+
+message MessageResponse {
+  enum Type{HELLO = 0; TIME = 1;}
+
+  Type type = 1;
+
+  optional SayHelloResponse hello = 2;
+  optional TimeResponse time = 3;
+}
+
+message SayHelloRequest {
+  optional string messageTxt = 1;
+}
+
+message SayHelloResponse {
+  optional string messageTxt = 1;
+}
+
+message TimeRequest {
+
+}
+
+message TimeResponse{
+  optional int64 time = 1;
+}
